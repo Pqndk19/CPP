@@ -17,7 +17,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-//Zombie::Zombie(std::string name) : name(name) {}
+Zombie::Zombie(std::string name) : name(name) {}
 
 Zombie::~Zombie(void)
 {

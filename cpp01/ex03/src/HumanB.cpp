@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmassa-r <mmassa-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/23 00:27:22 by mmassa-r          #+#    #+#             */
-/*   Updated: 2024/02/23 00:27:24 by mmassa-r         ###   ########.fr       */
+/*   Created: 2024/02/29 00:32:06 by mmassa-r          #+#    #+#             */
+/*   Updated: 2024/02/29 00:32:07 by mmassa-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#include "HumanB.hpp"
+#include <iostream>
 
-#include <string>
-class Zombie{
+using std::cin;
+using std::cout;
+using std::endl;
 
-	public:
-   	Zombie(std::string name);
-    ~Zombie(void);
-	void 				announce( void );
-	void 				SetName(std::string name);
-	private:
-		std::string name;
-};
+HumanB::HumanB(std::string name) : name(name) {}
 
-Zombie *zombieHorde(int N, std::string name);
-
-#endif
+void HumanB::setWeapon(Weapon &weapon)
+{
+	this->weapon = &weapon;
+}
+void HumanB::attack()
+{
+	cout << this->name << " attacks with their " << weapon->getType() << endl;
+}
