@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mmassa-r <mmassa-r@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/07 01:01:51 by mmassa-r          #+#    #+#              #
-#    Updated: 2024/03/07 01:01:52 by mmassa-r         ###   ########.fr        #
+#    Created: 2024/03/12 00:40:07 by mmassa-r          #+#    #+#              #
+#    Updated: 2024/03/12 00:40:09 by mmassa-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = harl
+NAME = harlFilter
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I./Includes -fsanitize=address
 SRC = main.cpp srcs/Harl.cpp

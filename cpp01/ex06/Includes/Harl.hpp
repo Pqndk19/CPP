@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmassa-r <mmassa-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 01:01:58 by mmassa-r          #+#    #+#             */
-/*   Updated: 2024/03/07 01:02:01 by mmassa-r         ###   ########.fr       */
+/*   Created: 2024/03/12 00:41:20 by mmassa-r          #+#    #+#             */
+/*   Updated: 2024/03/12 00:41:21 by mmassa-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
-#include <iostream>
-#include <string>
+#ifndef HARL_HPP
+# define HARL_HPP
 
-using std::cin;
-using std::cout;
-using std::endl;
+# include <string>
 
-int main()
+class Harl
 {
-	Harl harl;
+	public:
+		Harl();
+		~Harl();
+		void complain(std::string level);
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+};
 
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
+typedef void (Harl::*harl_membs_t) (void);
 
-}
+#endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmassa-r <mmassa-r@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 01:02:18 by mmassa-r          #+#    #+#             */
-/*   Updated: 2024/03/07 01:02:19 by mmassa-r         ###   ########.fr       */
+/*   Created: 2024/03/12 00:40:55 by mmassa-r          #+#    #+#             */
+/*   Updated: 2024/03/12 00:40:56 by mmassa-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,40 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	void (Harl::*harl_membs[])(void) = {&Harl::debug, &Harl::info, &Harl::warning,
+	harl_membs_t harl_membs[] = {&Harl::debug, &Harl::info, &Harl::warning,
 									&Harl::error};
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for(int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
-			(this->*harl_membs[i])();
-	}	
+		{
+			switch (i)
+			{
+				case 0:
+						(this->*harl_membs[0])();
+						(this->*harl_membs[1])();
+						(this->*harl_membs[2])();
+						(this->*harl_membs[3])();
+						break;
+				case 1:
+						(this->*harl_membs[1])();
+						(this->*harl_membs[2])();
+						(this->*harl_membs[3])();
+						break;
+				case 2:
+						(this->*harl_membs[2])();
+						(this->*harl_membs[3])();
+						break;
+				case 3:
+						(this->*harl_membs[3])();
+						break;
+				default:
+						break;
+			}
+			return;
+		}
+			
+	}
+	cout <<	"[ Probably complaining about insignificant problems ]" << endl;
 }
